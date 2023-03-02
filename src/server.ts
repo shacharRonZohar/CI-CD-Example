@@ -1,10 +1,8 @@
 import express, { Request, Response } from 'express'
+import { doSomething } from './service.js'
 
 const app = express()
 
-export function doSomething(num1: number, num2: number) {
-  return num1 + num2
-}
 app.get('/', (req: Request, res: Response) => {
   const result = doSomething(1, 2)
   res.send(result)
