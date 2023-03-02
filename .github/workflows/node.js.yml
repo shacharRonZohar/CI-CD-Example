@@ -22,6 +22,8 @@ jobs:
           cache: 'yarn'
       - run: yarn
       - run: yarn run build
+      - run: yarn test
+      - run: yarn lint
 
   test:
     needs: build
@@ -42,3 +44,36 @@ jobs:
       - uses: actions/checkout@v3
       - run: yarn
       - run: yarn lint
+# simultaneous, not the best example
+# build:
+#   runs-on: ubuntu-latest
+
+#   steps:
+#     - uses: actions/checkout@v3
+#     - name: Use Node.js
+#       uses: actions/setup-node@v3
+#       with:
+#         node-version: 18.x
+#         cache: 'yarn'
+#     - run: yarn
+#     - run: yarn run build
+
+# test:
+#   needs: build
+
+#   runs-on: ubuntu-latest
+
+#   steps:
+#     - uses: actions/checkout@v3
+#     - run: yarn
+#     - run: yarn test
+
+# lint:
+#   needs: build
+
+#   runs-on: ubuntu-latest
+
+#   steps:
+#     - uses: actions/checkout@v3
+#     - run: yarn
+#     - run: yarn lint
