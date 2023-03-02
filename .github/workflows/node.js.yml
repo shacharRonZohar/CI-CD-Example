@@ -30,6 +30,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - run: yarn
       - run: yarn test
 
   lint:
@@ -39,4 +40,5 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - run: yarn
       - run: yarn lint
